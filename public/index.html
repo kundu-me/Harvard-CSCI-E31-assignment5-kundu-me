@@ -1,0 +1,223 @@
+<html>
+    <head>
+        <title>NKart Shopping</title>
+        <link rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css'/>
+    </head>
+	<boby>
+        <center>
+            <h1><a href="/">NKart Shopping</a></h1>
+        </center>
+        <hr/>
+        <div class="container">
+            <div class="row">
+                <div class ="col-sm-6">
+                    <h3>TYPE</h3>
+                </div>
+                <div class ="col-sm-6">
+                    <h3>URL</h3>
+                </div>
+            </div>
+            <hr/>
+            
+            <div class="row">
+                <div class ="col-sm-12">
+                    <marquee><h4>REST APIs - Please use Console</h4></marquee>
+                </div>
+            </div>
+            
+            <hr/>
+            <div class="row">
+                <div class ="col-sm-6">
+                    <h3>REST APIs</h3>
+                </div>
+                <div class ="col-sm-3">
+                    <h4><a href="js/api.js">js/api.js</a></h4>
+                </div>
+                <div class ="col-sm-3">
+                    <form>
+                        <h4><input type="button" value="Test REST APIs" onclick="testAPIs()"></h4>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class ="col-sm-6">
+                    <h3>REST API - List</h3>
+                </div>
+                <div class ="col-sm-3">
+                    <h4><a href="/api/users">GET: /api/users</a></h4>
+                </div>
+                <div class ="col-sm-3">
+                    <form>
+                        <h4><input type="button" value="List" onclick="api_list()"></h4>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class ="col-sm-6">
+                    <h3>REST API - Find</h3>
+                </div>
+                <div class ="col-sm-3">
+                    <h4><a href="/api/users/:userid">GET: /api/users/:userid</a></h4>
+                </div>
+                <div class ="col-sm-3">
+                    <form>
+                        <h4><input type="text" placeholder="userid" id="api-find-userid"></h4>
+                        <h4><input type="button" value="Find" onclick="api_find()"></h4>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class ="col-sm-6">
+                    <h3>REST API - Create</h3>
+                </div>
+                <div class ="col-sm-3">
+                    <h4><a href="/api/users">POST: /api/users</a></h4>
+                </div>
+                <div class ="col-sm-3">
+                    <form>
+                        <h4><input type="text" placeholder="userid" id="api-create-userid"></h4>
+                        <h4><input type="text" placeholder="name" id="api-create-name"></h4>
+                        <h4><input type="text" placeholder="address" id="api-create-address"></h4>
+                        <h4><input type="button" value="Create" onclick="api_create()"></h4>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class ="col-sm-6">
+                    <h3>REST API - Update</h3>
+                </div>
+                <div class ="col-sm-3">
+                    <h4><a href="/api/users">PUT: /api/users</a></h4>
+                </div>
+                <div class ="col-sm-3">
+                    <form>
+                        <h4><input type="text" placeholder="userid" id="api-update-userid"></h4>
+                        <h4><input type="text" placeholder="name" id="api-update-name"></h4>
+                        <h4><input type="text" placeholder="address" id="api-update-address"></h4>
+                        <h4><input type="button" value="Update" onclick="api_update()"></h4>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class ="col-sm-6">
+                    <h3>REST API - Delete</h3>
+                </div>
+                <div class ="col-sm-3">
+                    <h4><a href="/api/users/:userid">DELETE: /api/users/:userid</a></h4>
+                </div>
+                <div class ="col-sm-3">
+                    <form>
+                        <h4><input type="text" placeholder="userid" id="api-delete-userid"></h4>
+                        <h4><input type="button" value="Delete" onclick="api_delete()"></h4>
+                    </form>
+                </div>
+            </div>
+            
+            <hr/>
+            
+            <div class="row">
+                <div class ="col-sm-6">
+                    <h3>Users</h3>
+                </div>
+                <div class ="col-sm-6">
+                    <h4><a href="/users">/users</a></h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class ="col-sm-6">
+                    <h3>Orders</h3>
+                </div>
+                <div class ="col-sm-6">
+                    <h4><a href="/orders">/orders</a></h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class ="col-sm-6">
+                    <h3>Products</h3>
+                </div>
+                <div class ="col-sm-6">
+                    <h4><a href="/products">/products</a></h4>
+                </div>
+            </div>
+            </hr/>
+            <div class="row">
+                <div class ="col-sm-6">
+                    <h3>User</h3>
+                </div>
+                <div class ="col-sm-3">
+                    <h4><a href="/users/user/:userid">/users/user/:userid</a></h4>
+                    <h4><a href="/restapi/users?userid=:userid">/restapi/users?userid=:userid</a></h4>
+                </div>
+                <div class ="col-sm-3">
+                    <hr/>
+                    <form id="formUser" action="/users/user/create" method="post">
+                        <h4><input type="text" name="userid" placeholder="userid"></h4>
+                        <h4><input type="text" name="name" placeholder="name"></h4>
+                        <h4><input type="text" name="address" placeholder="address"></h4>
+                        <h4><input type="submit" value="CREATE"></h4>
+                    </form>
+                    <hr/>
+                    <form id="formUser" action="/users/user/read" method="post">
+                        <h4><input type="text" name="userid" placeholder="userid"></h4>
+                        <h4><input type="submit" value="READ"></h4>
+                    </form>
+                    <hr/>
+                    <form id="formUser" action="/users/user/update" method="post">
+                        <h4><input type="text" name="userid" placeholder="userid"></h4>
+                        <h4><input type="text" name="name" placeholder="name"></h4>
+                        <h4><input type="text" name="address" placeholder="address"></h4>
+                        <h4><input type="submit" value="UPDATE"></h4>
+                    </form>
+                    <hr/>
+                    <form id="formUser" action="/users/user/delete" method="post">
+                        <h4><input type="text" name="userid" placeholder="userid"></h4>
+                        <h4><input type="submit" value="DELETE"></h4>
+                    </form>
+                    <hr/>
+                    <form id="formOrder" action="/restapi/users">
+                        <h4><input type="text" name="userid" placeholder="userid"></h4>
+                        <h4><input type="submit" value="GET"></h4>
+                    </form>
+                    </hr/>
+                </div>
+            </div>
+            </hr/>
+            <div class="row">
+                <div class ="col-sm-6">
+                    <h3>Order</h3>
+                </div>
+                <div class ="col-sm-3">
+                    <h4><a href="/orders/order/:orderid">/orders/order/:orderid</a></h4>
+                    <h4><a href="/restapi/orders?orderid=:orderid">/restapi/orders?orderid=:orderid</a></h4>
+                </div>
+                <div class ="col-sm-3">
+                    <form id="formOrder" action="/restapi/orders">
+                        <h4><input type="text" name="orderid" placeholder="orderid"></h4>
+                        <h4><input type="submit" value="GET"></h4>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class ="col-sm-6">
+                    <h3>Product</h3>
+                </div>
+                <div class ="col-sm-3">
+                    <h4><a href="/products/product/:productid">/products/product/:productid</a></h4>
+                    <h4><a href="/restapi/products?productid=:productid">/restapi/products?productid=:productid</a></h4>
+                </div>
+                <div class ="col-sm-3">
+                    <form id="fromProduct" action="/restapi/products">
+                        <h4><input type="text" name="productid" placeholder="productid"></h4>
+                        <h4><input type="submit" value="GET"></h4>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/api.js"></script>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+h3 Users
+h4
+    .container
+        .row
+            .col-sm-3
+                h4 Userid
+            .col-sm-3
+                h4 Name
+            .col-sm-3
+                h4 Address
+            .col-sm-3
+                h4 Orders
+        hr
+        if users
+            each user in users
+                .row
+                    .col-sm-3
+                        p #{user.userid}
+                    .col-sm-3
+                        p #{user.name}
+                    .col-sm-3
+                        p #{user.address}
+                    .col-sm-3
+                        if user.orders
+                            each orderid in user.orders
+                                .row
+                                    p
+                                        a(href="orders/order/#{orderid}") #{orderid}

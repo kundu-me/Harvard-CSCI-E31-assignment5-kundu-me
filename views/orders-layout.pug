@@ -1,0 +1,47 @@
+h3 Orders
+h4
+    .container
+        .row
+            .col-sm-2
+                h4 Order ID
+            .col-sm-2
+                h4 User ID
+            .col-sm-4
+                .row
+                    .col-sm-3
+                        h4 Product
+                    .col-sm-3
+                        h4 Price
+                    .col-sm-3
+                        h4 Quantity
+                    .col-sm-3
+                        h4 SubTotal
+            .col-sm-2
+                p Total
+            .col-sm-2
+                p Status
+        hr
+        if orders
+            each order in orders
+                .row
+                    .col-sm-2
+                        p #{order.orderid}
+                    .col-sm-2
+                        p #{order.userid}
+                    .col-sm-4
+                        each item in order.items
+                            .row
+                                .col-sm-3
+                                    p #{item.productid}
+                                .col-sm-3
+                                    p #{item.price}
+                                .col-sm-3
+                                    p #{item.quantity}
+                                .col-sm-3
+                                    p #{item.subtotal}
+                                    
+                    .col-sm-2
+                        p #{order.total}
+                    .col-sm-2
+                        p #{order.status}
+
